@@ -1,0 +1,27 @@
+<div class="container py-3">
+  <mat-tab-group (selectedTabChange)="changeTab($event)">
+    <mat-tab label="Main">
+      <form [formGroup]="filtersForm" class="d-flex align-items-center mt-3">
+        <label class="mr-3">
+          <input type="text" formControlName="title" placeholder="Filter videos by title"
+                 class="py-1 px-3"
+                 (keyup.enter)="applyFilters()"
+          >
+        </label>
+        <button type="button" class="btn btn-light align-self-baseline" (click)="applyFilters()">Apply</button>
+      </form>
+
+      <ng-container *ngTemplateOutlet="videoGrid"></ng-container>
+    </mat-tab>
+    <mat-tab *ngIf="favourites.length" label="Favourites">
+      <ng-container *ngTemplateOutlet="videoGrid"></ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<ng-template #videoGrid>
+  <app-videos-grid
+      [videos]="videos"
+      (showMore$)="showMore()"
+  ></app-videos-grid>
+</ng-template>

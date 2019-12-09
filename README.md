@@ -1,27 +1,31 @@
-# YoutubeTrends
+# PC issues wiki
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+> A small task completed for the recruiter's evaluation. Time was of the essence, so I did only the basic architecture with minimum functionality to provide mvp.
 
-## Development server
+## Build Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You need to run these commands both in ```./server``` and in ```./public```
+``` bash
+# install dependencies for both 
+yarn install
 
-## Code scaffolding
+# serve with hot reload at localhost:8080
+yarn run start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Note that unit testing wasn't implemented to save time as it's not required by the task. However the basic setup is there in case I would add it later just for fun.
 
-## Build
+## Task description
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Create a web application with Angular 7+ that loads the data from a third-party API (i.e. top-50 from YouTube or Google Books). There should be a possibility to load more and to filter by text.
 
-## Running unit tests
+There should be an option to show all results or only the selected ones (favourites).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Use RXJS and reactive forms. Pressing F5 should no clear the selected favourites.
 
-## Running end-to-end tests
+## Comments on the project
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+I tried to finish the task as fast as possible, which took me around 8 hours, which includes time spent on researching Youtube API nad other tools required for the task (it's been a while since I worked with Youtube API).
 
-## Further help
+I decided to use local storage to prevent favourites from resetting. It is due to the fact that the app is not using a database, which I would use for that purpose otherwise (maybe both for improved performance).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
