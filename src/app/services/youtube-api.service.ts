@@ -8,7 +8,7 @@ import { IYoutubeData, IYoutubeOptions } from '../interfaces';
 })
 export class YoutubeApiService {
   apiUrl = 'https://www.googleapis.com/youtube/v3';
-  apiKey = 'AIzaSyDMWoxS04GRyFs2ppUL_7Tfzv_e6s8NkEc';
+  apiKey = 'ENTER YOUR API KEY HERE';
 
   constructor(private http: HttpClient) { }
 
