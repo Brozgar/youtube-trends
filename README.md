@@ -7,10 +7,10 @@
 ## Build Setup
 
 ``` bash
-# install dependencies for both 
+# install dependencies
 yarn install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:4200
 yarn run start
 ```
 
