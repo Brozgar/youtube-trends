@@ -1,4 +1,4 @@
-# PC issues wiki
+# Youtube Trends
 
 > A small task completed for the recruiter's evaluation. Time was of the essence, so I did only the basic architecture with minimum functionality to provide mvp.
 
