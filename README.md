@@ -4,7 +4,6 @@
 
 ## Build Setup
 
-You need to run these commands both in ```./server``` and in ```./public```
 ``` bash
 # install dependencies for both 
 yarn install
