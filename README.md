@@ -12,7 +12,7 @@ yarn install
 yarn run start
 ```
 
-Then you need to add your API key to access Youtube API v3. You can do that in ]Google Developers Console](developers.console.google.com) The key is stored in the service (since it's the only configurable constant I didn't move it to a separate config file). The service is located in ```src/app/services/youtube-api.service.ts```.
+Then you need to add your API key to access Youtube API v3. You can do that in [Google Developers Console](https://developers.console.google.com) The key is stored in the service (since it's the only configurable constant I didn't move it to a separate config file). The service is located in ```src/app/services/youtube-api.service.ts```.
 
 Note that unit testing wasn't implemented to save time as it's not required by the task. However the basic setup is there in case I would add it later just for fun.
 
