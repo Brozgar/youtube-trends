@@ -5,16 +5,18 @@
     <ng-container *ngFor="let video of videos.items">
       <div class="card m-2 card-video">
         <div [innerHtml]="getVideoIFrame(video.id.videoId || video.id)" class="card-img-top"></div>
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <div class="card-title">{{video.snippet.title}}</div>
-          <div class="text">{{video.snippet.channelTitle}}</div>
+          <div class="text mb-4">{{video.snippet.channelTitle}}</div>
 
-          <ng-container *ngIf="isFavourite(video)">
-            <ng-container [ngTemplateOutlet]="inFavourites" [ngTemplateOutletContext]="{video: video, faHeart: faHeart}"></ng-container>
-          </ng-container>
-          <ng-container *ngIf="!isFavourite(video)">
-            <ng-container [ngTemplateOutlet]="notInFavourites" [ngTemplateOutletContext]="{video: video}"></ng-container>
-          </ng-container>
+          <div class="mt-auto text-center">
+            <ng-container *ngIf="isFavourite(video)">
+              <ng-container [ngTemplateOutlet]="inFavourites" [ngTemplateOutletContext]="{video: video, faHeart: faHeart}"></ng-container>
+            </ng-container>
+            <ng-container *ngIf="!isFavourite(video)">
+              <ng-container [ngTemplateOutlet]="notInFavourites" [ngTemplateOutletContext]="{video: video}"></ng-container>
+            </ng-container>
+          </div>
         </div>
       </div>
     </ng-container>
@@ -32,7 +34,7 @@
 
 <ng-template #inFavourites let-video="video" let-faHeart="faHeart">
   <div><fa-icon [icon]="faHeart"></fa-icon> In Favourites</div>
-  <button type="button" class="btn btn-danger mt-3"
+  <button type="button" class="btn btn-danger mt-2"
           (click)="removeFromFavourites(video.id.videoId || video.id)"
   >Remove from favourites</button>
 </ng-template>
