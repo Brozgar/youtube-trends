@@ -1,5 +1,5 @@
 <div class="container py-3">
-  <mat-tab-group (selectedTabChange)="changeTab($event)">
+  <mat-tab-group (selectedTabChange)="changeTab($event)" dynamicHeight>
     <mat-tab label="Main">
       <form [formGroup]="filtersForm" class="d-flex align-items-center mt-3">
         <label class="mr-3">

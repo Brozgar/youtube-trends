@@ -1,18 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import apiConfig from '../configs/apiConfig';
+import { APIMethodsEnum } from '../enums';
 import { IYoutubeData, IYoutubeOptions } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class YoutubeApiService {
-  apiUrl = 'https://www.googleapis.com/youtube/v3';
-  apiKey = 'ENTER YOUR API KEY HERE';
+  apiUrl = apiConfig.apiUrl;
+  apiKey = apiConfig.apiKey;
 
   constructor(private http: HttpClient) { }
 
-  get$(options?: IYoutubeOptions, apiMethod: string = 'videos'): Observable<IYoutubeData> {
+  get$(options?: IYoutubeOptions, apiMethod: APIMethodsEnum = APIMethodsEnum.videos): Observable<IYoutubeData> {
     if (options.id && Array.isArray(options.id)) {
       options.id = options.id.join(',');
     }
@@ -25,8 +27,6 @@ export class YoutubeApiService {
       type: 'video',
       ...options
     };
-
-    console.log(options);
 
     return this.http.get<IYoutubeData>(`${this.apiUrl}/${apiMethod}`, {
       params

@@ -28,7 +28,7 @@ export class YoutubeTrendsComponent implements OnInit, OnDestroy {
     private videosManagerService: VideosManagerService,
   ) { }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.getVideos({ chart: 'mostPopular' });
 
     this.videosManagerService.favouriteVideos$.pipe(takeUntil(this.destroy$)).subscribe(videos => {
@@ -36,7 +36,7 @@ export class YoutubeTrendsComponent implements OnInit, OnDestroy {
     });
   }
 
-  getVideos(options?: IYoutubeOptions, add: boolean = false) {
+  getVideos(options?: IYoutubeOptions, add: boolean = false): void {
     // We only need the first result here,
     // but also we want to unsubscribe if we change route before we got the response, for example
     this.youtubeService.get$(options, this.apiMethod).pipe(first(), takeUntil(this.destroy$)).subscribe(videos => {
@@ -49,7 +49,7 @@ export class YoutubeTrendsComponent implements OnInit, OnDestroy {
     });
   }
 
-  applyFilters() {
+  applyFilters(): void {
     const title = this.filtersForm.get('title').value.trim();
 
     if (title) {
@@ -61,7 +61,7 @@ export class YoutubeTrendsComponent implements OnInit, OnDestroy {
     }
   }
 
-  showMore() {
+  showMore(): void {
     const options: IYoutubeOptions = { pageToken: this.videos.nextPageToken };
     if (this.apiMethod === APIMethodsEnum.videos) {
       options.chart = 'mostPopular';
@@ -69,7 +69,7 @@ export class YoutubeTrendsComponent implements OnInit, OnDestroy {
     this.getVideos(options, true);
   }
 
-  changeTab(event: MatTabChangeEvent) {
+  changeTab(event: MatTabChangeEvent): void {
     const tabLabel = event.tab.textLabel;
 
     if (tabLabel === 'Favourites') {

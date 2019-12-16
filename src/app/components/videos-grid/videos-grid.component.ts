@@ -51,21 +51,21 @@ export class VideosGridComponent implements OnInit, OnDestroy {
     return cachedVideos.html;
   }
 
-  showMore() {
+  showMore(): void {
     this.showMore$.emit();
   }
 
-  addToFavourites(id: string) {
+  addToFavourites(id: string): void {
     this.favourites.push(id);
     this.videosManagerService.updateFavourites(this.favourites);
   }
 
-  removeFromFavourites(id: string) {
+  removeFromFavourites(id: string): void {
     this.favourites = this.favourites.filter(fav => fav !== id);
     this.videosManagerService.updateFavourites(this.favourites);
   }
 
-  isFavourite(video: IYoutubeVideoResource) {
+  isFavourite(video: IYoutubeVideoResource): string {
     // @ts-ignore
     return this.favourites.find( fav => fav === video.id.videoId || fav === video.id);
   }

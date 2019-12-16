@@ -15,10 +15,15 @@ export interface IYoutubeOptions {
   chart?: string;
 }
 
+export interface IYoutubeId {
+  kind: string;
+  videoId: string;
+}
+
 export interface IYoutubeVideoResource {
   kind: string;
   etag: string;
-  id: string | { kind: string, videoId: string };
+  id: string | IYoutubeId;
   snippet: {
     publishedAt: Date;
     channelId: string;

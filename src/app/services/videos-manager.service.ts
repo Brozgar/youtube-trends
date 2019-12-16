@@ -5,14 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class VideosManagerService {
-  constructor() { }
-
   favourites = JSON.parse(localStorage.getItem('favourites'));
   favouriteVideos$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(
     this.favourites || []
   );
 
-  updateFavourites(favourites: string[]) {
+  constructor() { }
+
+  updateFavourites(favourites: string[]): void {
     localStorage.setItem('favourites', JSON.stringify(favourites));
     this.favouriteVideos$.next(favourites);
   }
